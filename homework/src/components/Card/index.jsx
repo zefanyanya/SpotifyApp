@@ -1,21 +1,27 @@
 import React from 'react'
-import data from '../../data/data';
 import './index.css';
 
-function App() {
+const Card = ({title, artists, img}) =>  {
   return (
-    <div className="App">
-      <div>
+    <div className="Card">
+      <img className="img" src={img} alt={title}/>
+      <h1 className="title">{title}</h1>
+      <h3 className="artists">{artists}</h3>
+      <div className="button">
+        <button id="select"> Select</button>
+      </div>
+      
+      {/* <div>
         <img src={data.album.images[0].url} width="300" height="300" />
       </div>
       <div>
         <h2>{data.name}</h2>
         <h3>{data.album.name}</h3>
         <p>{data.artists[0].name}</p>
-	<button><a href={data.album.artists[0].external_urls.spotify}>select</a></button>
-      </div>
+	<button className='btn'><a href={data.album.artists[0].external_urls.spotify}>select</a></button>
+      </div>*/}
     </div>
   );
 }
 
-export default App;
+export default Card;
