@@ -9,7 +9,6 @@ const App = () => {
       img = {data.album.images[0].url}
       title = {data.name}
       artists = {data.album.artists[0].name}
-      
       />
       ))}
     </div>

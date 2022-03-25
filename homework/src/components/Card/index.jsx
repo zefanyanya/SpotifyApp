@@ -3,14 +3,16 @@ import './index.css';
 
 const Card = ({title, artists, img}) =>  {
   return (
+    <div className="Container">
     <div className="Card">
       <img className="img" src={img} alt={title}/>
       <h1 className="title">{title}</h1>
       <h3 className="artists">{artists}</h3>
-      <div className="button">
-        <button id="select"> Select</button>
+      <div className="button-wrapper">
+        <button className="button" id="select"> Select</button>
       </div>
-      
+      </div>
+
       {/* <div>
         <img src={data.album.images[0].url} width="300" height="300" />
       </div>

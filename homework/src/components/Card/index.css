@@ -1,5 +1,56 @@
 
+.Card{
+  width: 280px;
+  height: 500px;
+  background-color: green;
+  border-radius: 20px;
+  margin: auto;
+  /* float: left;
+  white-space: nowrap;
+  margin: 50px 50px 50px 50px; */
+  /* display:grid;
+  grid-template-columns: repeat(4,1fr);
+  border-radius: 40px;
+  background-color: rgb(64, 117, 64); */
+  /* justify-content: center; */
+}
+
+.img{
+  width: 100%;
+  border-radius: 20px;
+}
+
+.title{
+  font-size: 20px;
+}
+
+.artist{
+  font-size: 10px;
+  padding: 0px 0px 0px 0px;
   
-  .btn{
-    size: 20px;
-  }
+}
+
+.Container{
+  /* background-color: darkgreen; */
+  margin: 20px 20px 20px 20px;
+}
+
+.Cardsong{
+  display:grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 25px;
+  justify-items: center;
+  background-color: #000000;
+}
+  
+.button{
+  background-color: #000000; 
+  border: none;
+  border-radius: 70px;
+  color: white;
+  padding: 20px 20px;
+  font-size: 16px;
+  margin-left: 95px;
+  justify-content: center;
+}
+
