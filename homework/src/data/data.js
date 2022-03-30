@@ -76,7 +76,6 @@
 //   };
   
 //   export default data;
-
 const data = [
   {
     album: {

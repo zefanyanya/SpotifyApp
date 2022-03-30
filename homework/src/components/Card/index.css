@@ -1,56 +1,54 @@
-
-.Card{
-  width: 280px;
-  height: 500px;
-  background-color: green;
-  border-radius: 20px;
-  margin: auto;
-  /* float: left;
-  white-space: nowrap;
-  margin: 50px 50px 50px 50px; */
-  /* display:grid;
-  grid-template-columns: repeat(4,1fr);
-  border-radius: 40px;
-  background-color: rgb(64, 117, 64); */
-  /* justify-content: center; */
+.card {
+  width: 230px;
+  border: 1px solid #EEEEEE;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease-in-out;
 }
 
-.img{
+.card:hover {
+  box-shadow: 7px 7px 30px -8px rgba(0, 0, 0, .3);
+}
+
+.card:hover .card__image > img {
+  transform: scale(1);
+}
+
+.card__image {
   width: 100%;
-  border-radius: 20px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
 }
 
-.title{
-  font-size: 20px;
+.card__image > img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+
 }
 
-.artist{
-  font-size: 10px;
-  padding: 0px 0px 0px 0px;
-  
+.card__data {
+  padding: 12px;
 }
 
-.Container{
-  /* background-color: darkgreen; */
-  margin: 20px 20px 20px 20px;
+.card__content {
+  height: 67px;
 }
 
-.Cardsong{
-  display:grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 25px;
-  justify-items: center;
-  background-color: #000000;
-}
-  
-.button{
-  background-color: #000000; 
-  border: none;
-  border-radius: 70px;
-  color: white;
-  padding: 20px 20px;
-  font-size: 16px;
-  margin-left: 95px;
-  justify-content: center;
+.card__title {
+  font-size: 1rem;
+  margin-top: 4px;
 }
 
+.card__artist {
+  color: var(--gray);
+  margin-top: 4px;
+}
+
+.card .card__action {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
