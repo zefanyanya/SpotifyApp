@@ -1,51 +1,141 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
+import config from '../../lib/config';
+import Button from '../Button'
 import "./index.css";
 
-class Searchbar extends Component {
-  state = {
-    text: "",
-  };
+export default function Searchbar({ accessToken, onSuccess}) {
+  const [text, setText] = useState('');
 
-  hendleInput(e) {
-    this.setState({ text: e.target.value });
+  
+  const handleInput = (e) => {
+    setText(e.target.value);
   }
+  
+  const onSubmit = async (e) => {
+    e.preventDefault();
 
-  async onSubmit(e) {
-    const { text } = this.state;
-
-    const option = {
-      header: {
-        Authorization: this.props.accessToken,
-        "Content-Type": "application/json",
+    const requestOptions = {
+      headers: {
+        'Authorization': 'Bearer ' + accessToken,
+        'Content-Type': 'application/json',
       },
     };
+    
+    try {
+      const response = await fetch(`${config.SPOTIFY_BASE_URL}/search?type=track&q=${text}`, requestOptions)
+        .then((data) => data.json());
 
-    // const response = await fetch(
-    //   `${config.SPOTIFY_BASE_URL}/v1/search?type=track&q=${text}`
-    // ).then(data.json());
-    // const tracks = response.items;
-    // this.props.onSuccess(tracks);
+      const tracks = response.tracks.items;
+      onSuccess(tracks);
+    } catch (e) {
+      alert(e);
+    }
   }
 
-  render() {
     return (
-      <div className="searchbarWrap" onSubmit={(e) => this.onSubmit}>
+      <div>
+      <form className="form_inputSearch" onSubmit={onSubmit}>
         <input
           type="text"
           placeholder="Search..."
-          className="form_inputSearch"
+          className="form-search__input"
           required
-          onChange={this.handleInput}
+          onChange={handleInput}
         />
-        <button type="submit" value="submit">
-          Search
-        </button>
+        <Button className="btn" type="Submit">Search</Button>
+      </form>
       </div>
-    );
-  }
+    ) 
 }
 
-export default Searchbar;
+
+
+// export default function Searchbar({ accessToken, onSuccess}) {
+  
+
+
+// const Search=({accessToken,onSuccess})=>{
+
+// // const [text,setText] = useState('')
+// const handleInput=(e)=>{
+//     setText(e.target.value)
+// }
+
+//   const onSubmit = async (e) => {
+//     e.preventDefault();
+
+//     const requestOptions = {
+//       headers: {
+//         'Authorization': 'Bearer ' + accessToken,
+//         'Content-Type': 'application/json',
+//       },
+//     };
+
+    // try {
+    //   const response = await fetch(`${config.SPOTIFY_BASE_URL}/search?type=track&q=${text}`, requestOptions)
+    //     .then((data) => data.json());
+
+    //   const tracks = response.tracks.items;
+    //   onSuccess(tracks);
+    // } catch (e) {
+    //   alert(e);
+    // }
+// }
+
+//     const { text } = this.state;
+
+//     var requestOptions = {
+//       headers: {
+//         'Authorization': 'Bearer ' + this.props.accessToken,
+//         'Content-Type': 'application/json',
+//       },
+//     };
+
+//     try {
+//       const response = await fetch(`${config.SPOTIFY_BASE_URL}/search?type=track&q=${text}`, requestOptions)
+//         .then((data) => data.json());
+
+//       const tracks = response.tracks.items;
+//       this.props.onSuccess(tracks);
+//     } catch (e) {
+//       alert(e);
+//     }
+
+//     e.target.blur();
+//   }
+  
+//     return (
+//       <form className="form-search" onSubmit={onSubmit}>
+//         <input
+//           type="text"
+//           placeholder="Search..."
+//           className="form-search__input"
+//           required
+//           onChange={handleInput}
+//         />
+//         <Button className="btn" type="Submit">Search</Button>
+//       </form>
+//     )
+  
+// };
+
+
+
+
+
+// return (
+//   <form className="form-search" onSubmit={onSubmit}>
+//     <input
+//       type="text"
+//       placeholder="Search..."
+//       className="form-search__input"
+//       required
+//       onChange={handleInput}
+//     />
+//     <Button className="btn" type="submit">Search</Button>
+//   </form>
+// )
+// export default Searchbar;
 
 
 

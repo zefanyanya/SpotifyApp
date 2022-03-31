@@ -1,66 +1,93 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../components/Card";
 import Searchbar from "../components/Searchbar";
-import data from "../data/data";
+// import data from "../data/data";
 import "./index.css";
 import config from "../lib/config";
+import Button from "../components/Button";
 
-class Home extends Component {
-  state = {
-    accessToken: "",
-    isLogin: false,
-  };
 
-  getHashParams() {
-    const hashParams = {};
-    const r = /([^&;=]+)=?([^&;]*)/g;
-    const q = window.location.hash.substring(1);
-    let e = r.exec(q);
-    while (e) {
-      hashParams[e[1]] = decodeURIComponent(e[2]);
-      e = r.exec(q);
-    }
-    return hashParams;
+export default function Home() {
+  const [accessToken, setAccessToken] = useState('');
+  const [isAuthorize, setIsAuthorize] = useState(false);
+  const [tracks, setTracks] = useState([]);
+  const [selectedTracksUri, setSelectedTracksUri] = useState([]);
+
+useEffect(() => {
+const access_token = new URLSearchParams(window.location.hash).get('#access_token');
+
+  setAccessToken(access_token);
+  setIsAuthorize(access_token !== null)
+}, []);
+
+
+  const filterSelectedTracks = () => {
+    return tracks.filter(track => selectedTracksUri.includes(track.uri));
   }
-
-  componentDidMount() {
-    const params = this.getHashParams();
-    const { access_token: accessToken } = params;
-
-    this.setState({ accessToken, isAuthorize: accessToken !== undefined });
-  }
-
-  getSpotifyLinkAuthorize() {
+  
+  const getSpotifyLinkAuthorize = () => {
     const state = Date.now().toString();
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
-    return `${config.SPOTIFY_BASE_URL}/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://localhost:3000&state=${state}&scope=${config.SPOTIFY_SCOPE}`;
+    return `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://localhost:3000&state=${state}&scope=${config.SPOTIFY_SCOPE}`;
   }
 
-  onSuccessSearch(tracks) {
-    this.setState({ tracks });
+ const  onSuccessSearch = (searchTracks) => {
+  const selectedTracks = filterSelectedTracks();
+  const searchDistincTracks = searchTracks.filter(track => !selectedTracksUri.includes(track.uri));
+
+  setTracks([...selectedTracks, ...searchDistincTracks]);
   }
 
-  render() {
+
+    const toggleSelect = (track) => {
+      const uri = track.uri;
+  
+      if (selectedTracksUri.includes(uri)) {
+        setSelectedTracksUri(selectedTracksUri.filter(item => item !== uri));
+      } else {
+        setSelectedTracksUri([...selectedTracksUri, uri]);
+      }
+    }
+
     return (
-      <div className="top-wrapper">
-        <a href={this.getSpotifyLinkAuthorize()}>Authorize</a>
+      <>
+        {!isAuthorize && (
+          <main className="center">
+            <Button href={getSpotifyLinkAuthorize()}>Authorize</Button>
+          </main>
+        )}
 
-        {/* <Searchbar accessToken={this.state.accessToken} onSuccess={tracks} /> */}
-        <Searchbar />
-
-        <div className="container">
-          {data.map((data) => (
-            <Card
-              key={data.id}
-              img={data.album.images[0].url}
-              title={data.name}
-              artists={data.artists[0].name}
+        {isAuthorize && (
+          
+          <main className="top-wrapper" id="home">
+            <Searchbar
+              accessToken={accessToken}
+              onSuccess={(tracks) => onSuccessSearch(tracks)}
             />
-          ))}
-        </div>
-      </div>
-    );
-  }
+
+            <div className="content">
+              {tracks.length === 0 && (
+                <p>No tracks</p>
+              )}
+
+              <div className="container">
+                {tracks.map((data) => (
+                  <Card
+                    key={data.id}
+                    img={data.album.images[0].url}
+                    title={data.name}
+                    artists={data.artists[0].name}
+                    toggleSelect={() => toggleSelect(data)}
+                  />
+                ))}
+              </div>
+            </div>
+          </main>
+        )}
+      
+      </>
+    )
+}
 
   // const Home = () => {
   // return (
@@ -76,8 +103,6 @@ class Home extends Component {
   //   </div>
   //   );
   // };
-}
-export default Home;
 
 
 
