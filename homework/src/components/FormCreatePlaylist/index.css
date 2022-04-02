@@ -1,0 +1,31 @@
+.title{
+    color: aliceblue;
+}
+
+.form{
+    color: aliceblue;
+}
+
+.inputtitle{
+    width: 40%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    resize: vertical;
+    margin: 10px 10px 10px 10px;
+}
+
+.inputdesc{
+    width: 40%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    resize: vertical;
+    margin: 10px 10px 10px 10px;
+
+}
+
+.createPlaylist{
+    background-color: rgb(58, 58, 58);
+    margin-bottom: 10px;
+}

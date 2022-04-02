@@ -22,6 +22,8 @@ export default function Button({ children, type, variant, className, onClick, hr
     )
   }
 
+  
+
   return (
     <button type={type} className={classButton.join(' ')} onClick={onClick}>{children}</button>
   )

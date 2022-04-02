@@ -5,7 +5,8 @@ import Searchbar from "../components/Searchbar";
 import "./index.css";
 import config from "../lib/config";
 import Button from "../components/Button";
-
+// import { Playlist } from "../components/Form";
+import FormCreatePlaylist from "../components/FormCreatePlaylist";
 
 export default function Home() {
   const [accessToken, setAccessToken] = useState('');
@@ -60,6 +61,8 @@ const access_token = new URLSearchParams(window.location.hash).get('#access_toke
         {isAuthorize && (
           
           <main className="top-wrapper" id="home">
+
+            <FormCreatePlaylist />
             <Searchbar
               accessToken={accessToken}
               onSuccess={(tracks) => onSuccessSearch(tracks)}

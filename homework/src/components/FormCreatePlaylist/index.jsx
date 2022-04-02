@@ -1,34 +1,41 @@
 import React from "react";
-import "./form.css";
+import "./index.css";
+import Button from "../Button";
 
 const Form = () => {
   const handleClick = () => {
-    const judul = document.getElementById("title").value;
+    const title = document.getElementById("title").value;
 
-    alert(`Added new playlist. Playlist name: ${judul}`);
+    // alert(`Added new playlist. Playlist name: ${judul}`);
+
+
   };
   return (
     <div className="card">
       <div className="createPlaylist">
-        <h1>Create Playlist</h1>
+        <h1 className="title">Create Playlist</h1>
         <div className="form">
           <p>Title of Your Playlist :</p>
+          <form action="#">
           <input
+            minLength="10"
             type="text"
             id="title"
             name="title_input"
-            className="inputTitle"
+            placeholder="Input title"
+            className="inputtitle"
           />
-          <p>Description :</p>
+          <p className="description">Description :</p>
           <textarea
             id="description"
-            placeholder="Add an optional description"
-            className="desc"
+            placeholder="Add description"
+            className="inputdesc"
           ></textarea>
           <p></p>
-          <button onClick={handleClick} id="btn-Submit" className="btn">
-            Submit
+          <button onClick={handleClick}  id="btn-Submit" className="btn">
+            Create Playlist
           </button>
+          </form>
         </div>
       </div>
     </div>
