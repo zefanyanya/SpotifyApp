@@ -30,6 +30,9 @@ button:active {
   margin-bottom: 50px;
 }
 
-.form-search__input{
-  border-radius: 10px;
+.form_inputSearch{
+  border-radius: 20px;
+  width: 400px;
+  margin: 100px auto;
+
 }
