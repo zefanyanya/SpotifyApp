@@ -1,0 +1,25 @@
+.top-wrapper {
+    text-align: center;
+    margin-top: 50px;
+    justify-content: center;
+
+  }
+
+  .form{
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding-bottom: 50px;
+    justify-content: center;
+  }
+
+.info{
+  color: aliceblue;
+  float: right;
+  justify-content: center;
+}
