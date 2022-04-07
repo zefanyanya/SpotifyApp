@@ -3,8 +3,9 @@ import "./index.css";
 import config from "../../lib/config";
 import { useSelector } from "react-redux";
 
-const FormCreatePlaylist = ({ userId, uris }) => {
+const FormCreatePlaylist = ({ uris }) => {
   const accessToken = useSelector((state) => state.auth.accessToken);
+  const userId = useSelector((state) => state.auth.user.id);
 
   const [form, setForm] = useState({
     title: "",
