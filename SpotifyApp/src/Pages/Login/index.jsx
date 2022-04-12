@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-// import "./index.css";
+import React, { useEffect } from "react";
+import "./index.css";
 import config from "../../lib/config";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "../../reducer/authReducer";
 import { useHistory } from "react-router-dom";
 
@@ -54,9 +54,11 @@ const Login = () => {
 
   return (
     <div className="auth-link">
-      <a id="link" href={getLinkAuth()}>
-        Auth
-      </a>
+      <button className="button">
+        <a className="auth" href={getLinkAuth()}>
+          Authorize.
+        </a>
+      </button>
     </div>
   );
 };

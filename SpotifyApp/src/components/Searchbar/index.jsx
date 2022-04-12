@@ -41,8 +41,8 @@ export default function Searchbar({ onSuccess }) {
       <form className="form_inputSearch" onSubmit={onSubmit}>
         <input
           type="text"
-          placeholder="Search..."
-          className="form-search__input"
+          placeholder="Search"
+          className="input"
           required
           onChange={handleInput}
         />

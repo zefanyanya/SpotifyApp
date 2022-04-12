@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./index.css";
 import config from "../../lib/config";
 import { useSelector } from "react-redux";
+import styles from "./Form.module.css";
 
 const FormCreatePlaylist = ({ uris }) => {
   const accessToken = useSelector((state) => state.auth.accessToken);
@@ -69,7 +70,7 @@ const FormCreatePlaylist = ({ uris }) => {
   return (
     <div className="top-wraper">
       <form className="create-form" onSubmit={handleSubmit}>
-        <label className="label">Create Playlist</label> <br />
+        <h1 className="label">Create Playlist</h1> <br />
         <div className="isian">
           <input
             type="text"
@@ -83,7 +84,7 @@ const FormCreatePlaylist = ({ uris }) => {
           <textarea
             name="description"
             id="description"
-            className="isian"
+            className={styles.input}
             cols="60"
             rows="3"
             placeholder="Description"
@@ -92,7 +93,9 @@ const FormCreatePlaylist = ({ uris }) => {
           ></textarea>
           <br />
         </div>
-        <button type="submit">Create</button>
+        <button className="button" type="submit">
+          Create
+        </button>
       </form>
     </div>
   );

@@ -1,53 +1,53 @@
 body {
-  margin: 0;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   background-color: #202020;
 }
 
-* {
-  box-sizing: border-box;
+.container{
+  margin: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-radius: 4px;
+  gap: 30px;
+  border-radius: 20px;
+  align-items: center;
 }
 
-.card {
-  margin: 0 auto;
-  padding: 0px;
-  text-align: center;
+.card {  
+  grid-template-columns: repeat(2, 1fr);
+  border: 2px solid #e7e7e7;
+  color: white;
+  background-color: grey;
+  border-radius: 4px;
+  display: flex;
+  border-radius: 4px;
+}
+
+.card_content{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  margin: 50px 50px 50px 50px;
+
 }
 
 img {
-  margin-top: 40px;
-  width: 140px;
-  height: 140px;
   border-radius: 10px;
-}
-
-.card-wrap {
-  margin: 0 auto;
-  height: 300px;
-  width: 200px;
-  background-color: rgb(94, 93, 93);
-  border: 2px solid #0a2e01;
-  border-radius: 10px;
-}
-
-.card_album {
-  font-size: 13px;
-  margin: 5px 30px;
-}
-
-.card_artist {
-  font-size: 12px;
-  margin: 5px 0px;
-  font-weight: normal;
-  color: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 40vh;
+  margin: 50px 50px 50px 50px;
 }
 
 .card_button {
   cursor: pointer;
-  margin-top: 5px;
-  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 20px;
   font-size: 15px;
+  padding: 15px;
   background-color: #000000;
   box-shadow: 1px 2px rgb(119, 119, 119);
 }
@@ -57,9 +57,15 @@ img {
   top: 2px;
 }
 
-.card_content {
-  height: 60px;
-  width: auto;
-}
 
+/* 
 
+.card-wrap {
+  background-color: rgb(94, 93, 93);
+  border: 2px solid #0a2e01;
+  border-radius: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 2fr);
+  grid-gap: 0px;
+} */

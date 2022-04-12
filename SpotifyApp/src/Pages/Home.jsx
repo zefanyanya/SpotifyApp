@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "../components/Card";
 import config from "../lib/config";
+import "./index.css";
 import Searchbar from "../components/Searchbar";
 import FormCreatePlaylist from "../components/FormCreatePlaylist";
 import { useDispatch, useSelector } from "react-redux";
@@ -75,7 +76,7 @@ const Home = () => {
   };
 
   return (
-    <div className="form">
+    <div className="container">
       <FormCreatePlaylist userId={user.id} uris={selected} />
       <div className="container">
         {!isLogin && <a href={getLinkAuth()}>Auth</a>}
@@ -85,6 +86,7 @@ const Home = () => {
         {tracks.map((data) => (
           <Card
             key={data.id}
+            className="songs"
             img={data.album.images[0].url}
             title={data.name}
             artists={data.artists[0].name}

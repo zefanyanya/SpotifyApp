@@ -25,9 +25,9 @@ button:active {
 .btn{
   color: rgb(255, 255, 255);
   background-color: rgb(0, 0, 0);
-  justify-content: center;
-  align-content: center;
+  
   margin-bottom: 50px;
+  padding: 10px;
 }
 
 .form_inputSearch{
@@ -35,4 +35,9 @@ button:active {
   width: 400px;
   margin: 100px auto;
 
+}
+
+.input{
+  border-radius: 20px;
+  padding: 10px 30px 10px 90px;
 }

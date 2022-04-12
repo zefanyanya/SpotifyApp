@@ -11,13 +11,11 @@ const Card = ({ title, artists, img, toggleSelect }) => {
 
   return (
     <div className="card">
-      <div className="card-wrap">
-        <img src={img} alt={title} className="card_img" />
+      <img src={img} alt={title} className="card_img" />
 
-        <div className="card_content">
-          <h3 className="card_album">{title}</h3>
-          <h3 className="card_artist">{artists}</h3>
-        </div>
+      <div className="card_content">
+        <h3 className="card_album">{title}</h3>
+        <h3 className="card_artist">{artists}</h3>
 
         <div className="button_wrapper">
           <button className="card_button" onClick={handleToggleSelect}>

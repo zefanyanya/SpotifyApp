@@ -1,7 +1,7 @@
 import FormCreatePlaylist from "../../components/FormCreatePlaylist";
 import Searchbar from "../../components/Searchbar";
 import Card from "../../components/Card";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { useState } from "react";
 
 const CreatePlayList = () => {
@@ -37,10 +37,11 @@ const CreatePlayList = () => {
       <div className="search-bar">
         <Searchbar onSuccess={(tracks) => onSuccessSearch(tracks)} />
       </div>
-      <div className="songs">
+      <div className="container">
         {tracks.map((track) => (
           <Card
             key={track.id}
+            className="container"
             img={track.album.images[0].url}
             title={track.name}
             artists={track.artists[0].name}
