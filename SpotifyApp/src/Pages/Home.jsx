@@ -6,6 +6,7 @@ import Searchbar from "../components/Searchbar";
 import FormCreatePlaylist from "../components/FormCreatePlaylist";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../reducer/authReducer";
+import { Toolbar } from "@material-ui/core";
 
 const Home = () => {
   const [tracks, setTracks] = useState([]);
@@ -80,7 +81,9 @@ const Home = () => {
       <FormCreatePlaylist userId={user.id} uris={selected} />
       <div className="container">
         {!isLogin && <a href={getLinkAuth()}>Auth</a>}
-        <Searchbar onSuccess={(tracks) => onSuccessSearch(tracks)} />
+        <Toolbar>
+          <Searchbar onSuccess={(tracks) => onSuccessSearch(tracks)} />
+        </Toolbar>
       </div>
       <div className="songs">
         {tracks.map((data) => (

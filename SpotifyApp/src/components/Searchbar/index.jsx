@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import config from "../../lib/config";
-// import Button from "../Button";
+
 import "./index.css";
 import { useSelector } from "react-redux";
+import { TextField, Button } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 
 export default function Searchbar({ onSuccess }) {
   const accessToken = useSelector((state) => state.auth.accessToken);
@@ -39,16 +41,24 @@ export default function Searchbar({ onSuccess }) {
   return (
     <div>
       <form className="form_inputSearch" onSubmit={onSubmit}>
-        <input
-          type="text"
-          placeholder="Search"
-          className="input"
-          required
-          onChange={handleInput}
-        />
-        <button className="btn" type="Submit">
-          Search
-        </button>
+        <Grid container justify-content="flex-end">
+          <TextField
+            variant="outlined"
+            color="solid"
+            label="Search a Song"
+            required
+            onChange={handleInput}
+          />
+
+          <Button
+            variant="contained"
+            margin="normal"
+            color="green"
+            size="large"
+          >
+            Search
+          </Button>
+        </Grid>
       </form>
     </div>
   );
