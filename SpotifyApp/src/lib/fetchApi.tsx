@@ -25,8 +25,15 @@ export const getUserProfile: TGetUserProfile = async (accessToken) => {
   const requestOptions = {
     headers: {
       Authorization: "Bearer " + accessToken,
-      return response.data;
-    };
+      "Content-Type": "application/json",
+    },
+  };
+  const response = await axios.get(
+    `${config.SPOTIFY_BASE_URL}/me`,
+    requestOptions
+  );
+  return response.data;
+};
 
 interface IPlaylist {
   name: string;
@@ -48,6 +55,17 @@ export const createPlaylist: TCreatePlaylist = async (
     public: false,
     collaborative: false,
   });
+  const requestOptions = {
+    headers: {
+      Authorization: "Bearer " + accessToken,
+      "Content-Type": "application/json",
+    },
+  };
+  const response = await axios.post(
+    `${config.SPOTIFY_BASE_URL}/users/${userId}/playlists`,
+    data,
+    requestOptions
+  );
   return response.data;
 };
 

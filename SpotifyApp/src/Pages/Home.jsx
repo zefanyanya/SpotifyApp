@@ -80,7 +80,7 @@ const Home = () => {
       <FormCreatePlaylist userId={user.id} uris={selected} />
       <div className="container">
         {!isLogin && <a href={getLinkAuth()}>Auth</a>}
-          <Searchbar onSuccess={(tracks) => onSuccessSearch(tracks)} />
+        <Searchbar onSuccess={(tracks) => onSuccessSearch(tracks)} />
       </div>
       <div className="songs">
         {tracks.map((data) => (

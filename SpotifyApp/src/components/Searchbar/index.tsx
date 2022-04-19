@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { TextField, Button } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import {TRootState} from "../../store";
-import { searchTrack } from "../../lib/fetchApi";
+// import { searchTrack } from "../../lib/fetchApi";
 
 interface IProps{
   onSuccess: (tracks: any[], text: string) => void;
@@ -23,16 +23,24 @@ const Search: React.FC<IProps> = ({onSuccess}) => {
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) =>{
       e.preventDefault();
 
-      
+      const requestOptions = {
+        headers: {
+          Authorization: "Bearer " + accessToken,
+          "Content-Type": "application/json",
+        },
+      };
       try {
-        const response = await searchTrack(text, accessToken);
+        const response = await fetch(
+          `${config.SPOTIFY_BASE_URL}/search?type=track&q=${text}`,
+          requestOptions
+        ).then((data) => data.json());
   
         const tracks = response.tracks.items;
-        onSuccess(tracks,text);
+        onSuccess(tracks, text);
       } catch (e) {
         alert(e);
       }
-
+    };
   return (
     <div>
       <form className="form_inputSearch" onSubmit={onSubmit}>
