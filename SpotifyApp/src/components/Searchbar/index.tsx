@@ -50,9 +50,11 @@ const Search: React.FC<IProps> = ({onSuccess}) => {
             label="Search a Song"
             required
             onChange={handleInput}
+            data-testid="search-input"
           />
 
-          <Button>
+          <Button
+          data-testid="search-button" type="submit" >
             Search
           </Button>
         </Grid>

@@ -37,7 +37,7 @@ const CreatePlayList = () => {
       <div className="search-bar">
         <Searchbar onSuccess={(tracks) => onSuccessSearch(tracks)} />
       </div>
-      <div className="container">
+      <div className="container" data-testid="tracks-list">
         {tracks.map((track) => (
           <Card
             key={track.id}
