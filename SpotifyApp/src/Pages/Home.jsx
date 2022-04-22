@@ -94,6 +94,7 @@ const Home = () => {
             img={data.album.images[0].url}
             title={data.name}
             artists={data.artists[0].name}
+            duration={data.duration}
             toggleSelect={() => toggleSelect(data)}
           />
         ))}

@@ -1,26 +1,26 @@
-# SPOTIFY APP
+## SPOTIFY APP
 
 Web project using React for search a music, create playlist and, connect to your Spotify.
 
-# HOW TO RUN APP
+## HOW TO RUN APP
 
 npm start or yarn start
 Open http://localhost:3000 to view it in the browser.
 
-# Built with
+## Built with
 
-Create React App to initialize the project.
-Material-ui for layout & styling.
-testing-library for testing.
-write with typescript and javascript
-React redux for state management.
-Vercel
+- [x]Create React App to initialize the project.
+- [x]Material-ui for layout & styling.
+- [x]testing-library for testing.
+- [x]write with typescript and javascript
+- [x]React redux for state management.
+- [x]Vercel
 
-# FEATURES
+## FEATURES
 
-login with auth
-Feature search music
-Feature create new playlist
-Feature link show user profile
-Switch Theme Light or Dark
-Testing with MSW
+- [x]login with auth
+- [x]Feature search music
+- [x]Feature create new playlist
+- [x]Feature link show user profile
+- [x]Switch Theme Light or Dark
+- [x]Testing with MSW
