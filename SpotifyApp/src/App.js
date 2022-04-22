@@ -8,6 +8,7 @@ import "./App.css";
 import Login from "./Pages/Login";
 import CreatePlaylist from "./Pages/CreatePlaylist";
 import { useSelector } from "react-redux";
+import Navbar from "./components/Nav";
 
 function App() {
   const isLogin = useSelector((state) => state.auth.isLogin);
@@ -15,6 +16,7 @@ function App() {
     <Router>
       <Switch>
         <Route path={"/create-playlist"}>
+          <Navbar />
           {isLogin ? <CreatePlaylist /> : <Redirect to={"/"} />}
         </Route>
         <Route path={"/"}>
