@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./index.css";
+import { Button } from "@material-ui/core";
 
 interface IProps {
   img: string;
@@ -20,12 +21,12 @@ const Card: React.FC<IProps> = ({ title, artists, img, duration, toggleSelect })
     <div className="card">
       <img src={img} alt={title} className="img" />
       <div className="card_content">
-        <h3 className="card_title">{title}</h3>
-        <h3 className="card_artist">{artists}</h3>
-        <h3 className="card_artist">{duration}</h3>
-        <button className="card_button" onClick={handleToggleSelect}>
+        <h2 className="card_title">{title}</h2>
+        <h4 className="card_artist">{artists}</h4>
+        <h4 className="duration">{duration} sec</h4>
+        <Button variant="contained" className="card_button" onClick={handleToggleSelect}>
           {isSelected ? "Deselect" : "Select"}
-        </button>
+        </Button>
       </div>
     </div>
   );

@@ -54,7 +54,8 @@ const Login = () => {
 
   return (
     <div className="auth-link">
-      <button className="button">
+      <h3>Login to explore your music world!</h3>
+      <button className="login-btn">
         <a className="auth" href={getLinkAuth()}>
           Login
         </a>

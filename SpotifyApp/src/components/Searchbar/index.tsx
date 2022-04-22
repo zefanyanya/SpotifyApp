@@ -54,7 +54,7 @@ const Search: React.FC<IProps> = ({onSuccess}) => {
           />
 
           <Button
-          data-testid="search-button" type="submit" >
+          data-testid="search-button" variant="contained" className="search-btn" type="submit" >
             Search
           </Button>
         </Grid>

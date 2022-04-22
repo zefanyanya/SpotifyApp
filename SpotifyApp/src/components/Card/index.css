@@ -40,14 +40,14 @@ img {
 }
 
 .card_button {
+  margin-left: 150px;
+  margin-top: 30px;
   cursor: pointer;
-  display: flex;
-  justify-content: left;
-  border-radius: 10px;
-  font-size: 15px;
-  padding: 15px;
-  background-color: #006d1b;
-  box-shadow: 1px 2px rgb(119, 119, 119);
+  position: relative;
+  position: top;
+  border-radius: 35px;
+  width: 75px;
+  height: 35px;
 }
 
 .card_button:active {
@@ -55,15 +55,8 @@ img {
   top: 2px;
 }
 
-
-/* 
-
-.card-wrap {
-  background-color: rgb(94, 93, 93);
-  border: 2px solid #0a2e01;
-  border-radius: 10px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(5, 2fr);
-  grid-gap: 0px;
-} */
+h4{
+  color: white;
+  margin-left: 10px;
+  padding: 0px;
+}

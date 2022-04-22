@@ -3,6 +3,7 @@ import "./index.css";
 import config from "../../lib/config";
 import { useSelector } from "react-redux";
 import styles from "./Form.module.css";
+import { Button } from "@material-ui/core";
 
 const FormCreatePlaylist = ({ uris }) => {
   const accessToken = useSelector((state) => state.auth.accessToken);
@@ -93,10 +94,10 @@ const FormCreatePlaylist = ({ uris }) => {
             onChange={handlechange}
           ></textarea>
           <br />
+          <Button className="create-btn" variant="contained" type="submit">
+            Create
+          </Button>
         </div>
-        <button className="button" type="submit" id="btn">
-          Create
-        </button>
       </form>
     </div>
   );

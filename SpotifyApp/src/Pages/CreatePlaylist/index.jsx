@@ -4,6 +4,7 @@ import Card from "../../components/Card";
 // import { useSelector } from "react-redux";
 import { useState } from "react";
 import DarkMode from "../../components/Darkmode";
+import Head from "../../components/Head";
 
 const CreatePlayList = () => {
   const [tracks, setTracks] = useState([]);
@@ -37,7 +38,12 @@ const CreatePlayList = () => {
       <div className="darkmode">
         <DarkMode />
       </div>
+      <div className="info">
+        <Head />
+      </div>
+
       <FormCreatePlaylist uris={selected} />
+
       <div className="search-bar">
         <Searchbar onSuccess={(tracks) => onSuccessSearch(tracks)} />
       </div>

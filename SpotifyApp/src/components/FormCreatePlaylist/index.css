@@ -2,14 +2,20 @@
     color: aliceblue;
 }
 
+.create-btn{
+    margin-bottom: 30px;
+    margin-left: 80px ;
+    color: white;
+    background-color: darkgreen;
+}
 
 .create-form{
-    background-color: rgb(65, 65, 65);    
+    background-color: rgb(63, 63, 63);
     margin: 100px auto;
     width: 800px;
     padding: 10px;
     border-radius: 20px;
-    border: 1px solid #ccc;
+    border:3px solid darkgreen;
 }
 
 .label{
@@ -28,12 +34,4 @@
     width: 100%;
     padding: 10px;
     border-radius: 20px;
-}
-
-button{
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: green;
-    color: green;
 }
