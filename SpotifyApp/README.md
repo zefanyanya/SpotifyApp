@@ -9,18 +9,18 @@ Open http://localhost:3000 to view it in the browser.
 
 ## Built with
 
-- [x]Create React App to initialize the project.
-- [x]Material-ui for layout & styling.
-- [x]testing-library for testing.
-- [x]write with typescript and javascript
-- [x]React redux for state management.
-- [x]Vercel
+- Create React App to initialize the project.
+- Material-ui for layout & styling.
+- testing-library for testing.
+- write with typescript and javascript
+- React redux for state management.
+- Vercel
 
 ## FEATURES
 
-- [x]login with auth
-- [x]Feature search music
-- [x]Feature create new playlist
-- [x]Feature link show user profile
-- [x]Switch Theme Light or Dark
-- [x]Testing with MSW
+- login with auth
+- Feature search music
+- Feature create new playlist
+- Feature link show user profile
+- Switch Theme Light or Dark
+- Testing with MSW
