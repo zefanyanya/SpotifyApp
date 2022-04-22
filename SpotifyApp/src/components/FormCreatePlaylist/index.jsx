@@ -3,7 +3,6 @@ import "./index.css";
 import config from "../../lib/config";
 import { useSelector } from "react-redux";
 import styles from "./Form.module.css";
-import Track from "../Card";
 
 const FormCreatePlaylist = ({ uris }) => {
   const accessToken = useSelector((state) => state.auth.accessToken);
@@ -64,7 +63,7 @@ const FormCreatePlaylist = ({ uris }) => {
         alert(error);
       }
     } else {
-      alert("Title must be large 10 characters");
+      alert("Title and description must have more than 10 characters");
     }
   };
 
@@ -74,6 +73,7 @@ const FormCreatePlaylist = ({ uris }) => {
         <h1 className="label">Create Playlist</h1> <br />
         <div className="isian">
           <input
+            id="playlist-title"
             type="text"
             name="title"
             className="isian"
@@ -94,7 +94,7 @@ const FormCreatePlaylist = ({ uris }) => {
           ></textarea>
           <br />
         </div>
-        <button className="button" type="submit">
+        <button className="button" type="submit" id="btn">
           Create
         </button>
       </form>

@@ -2,7 +2,6 @@ import { Provider } from "react-redux";
 import Searchbar from "./index";
 import { render, screen, cleanup } from "@testing-library/react";
 import store from "../../store";
-import userEvent from "@testing-library/user-event";
 
 const setup = () =>
   render(

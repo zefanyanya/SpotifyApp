@@ -6,6 +6,7 @@ import Searchbar from "../components/Searchbar";
 import FormCreatePlaylist from "../components/FormCreatePlaylist";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../reducer/authReducer";
+import DarkMode from "../components/Darkmode";
 
 const Home = () => {
   const [tracks, setTracks] = useState([]);
@@ -78,6 +79,9 @@ const Home = () => {
   return (
     <div className="container">
       <FormCreatePlaylist userId={user.id} uris={selected} />
+      <div className="darkmode">
+        <DarkMode />
+      </div>
       <div className="container">
         {!isLogin && <a href={getLinkAuth()}>Auth</a>}
         <Searchbar onSuccess={(tracks) => onSuccessSearch(tracks)} />

@@ -5,10 +5,11 @@ interface IProps {
   img: string;
   title: string;
   artists: string;
+  duration: string;
   toggleSelect: () => void;
 }
 
-const Card: React.FC<IProps> = ({ title, artists, img, toggleSelect }) => {
+const Card: React.FC<IProps> = ({ title, artists, img, duration, toggleSelect }) => {
   const [isSelected, setIsSelected] = useState<boolean>(false);
 
   const handleToggleSelect: () => void = () => {
@@ -21,6 +22,7 @@ const Card: React.FC<IProps> = ({ title, artists, img, toggleSelect }) => {
       <div className="card_content">
         <h3 className="card_title">{title}</h3>
         <h3 className="card_artist">{artists}</h3>
+        <h3 className="card_artist">{duration}</h3>
         <button className="card_button" onClick={handleToggleSelect}>
           {isSelected ? "Deselect" : "Select"}
         </button>
